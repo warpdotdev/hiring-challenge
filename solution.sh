@@ -1,0 +1,1 @@
+awk -F'|' '/^[[:space:]]*#/ || NF!=8 {next} {for(i=1;i<=NF;i++)gsub(/^[[:space:]]+|[[:space:]]+$/,"",$i); if($3=="Mars" && $4=="Completed" && $6~/^[0-9]+$/ && $6+0>max){max=$6; code=$8}} END{print code}' space_missions.log
